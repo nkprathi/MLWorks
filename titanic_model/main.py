@@ -82,3 +82,15 @@ accuracy, matrix = evaluate_model(best_knn_model, X_test_scaled, y_test)
 
 print (f'Model Accuracy: {accuracy*100:.2f}%')
 print(f'Confusion Matrix:\n {matrix}')
+print(matrix)
+
+#plot confusion matrix
+def plot_model(matrix):
+    plt.figure(figsize=(10,7))
+    sns.heatmap(matrix, annot=True, fmt='d', xticklabels=["survived", "not survived"], yticklabels=["not survived", "survived"])
+    plt.title('Confusion Matrix')
+    plt.ylabel('True Value')
+    plt.xlabel('Predicted Label')
+    plt.show()
+
+plot_model(matrix)
